@@ -10,7 +10,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 const relativeUrl = '/' + (process.env.RELATIVE_URL || '');
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+  limit: '50mb'
+}));
 
 app.get(relativeUrl, (req, res) => {
   // TODO: show pages table
